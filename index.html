@@ -18,6 +18,8 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #000;
+            color: #fff;
         }
 
         .bg-clip-text {
@@ -26,7 +28,30 @@
             -webkit-text-fill-color: transparent;
         }
 
-        .shadow-violet-custom {
+        .gradient-text {
+            background: linear-gradient(90deg, #a78bfa, #fff, #fcd34d);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .scroll-smooth {
+            scroll-behavior: smooth;
+        }
+
+        .min-h-screen {
+            min-height: 100vh;
+        }
+
+        .backdrop-blur-xl {
+            backdrop-filter: blur(20px);
+        }
+
+        .backdrop-blur-2xl {
+            backdrop-filter: blur(40px);
+        }
+
+        .shadow-violet {
             box-shadow: 0 0 60px rgba(139, 92, 246, 0.35);
         }
 
@@ -34,11 +59,21 @@
             box-shadow: 0 0 80px rgba(139, 92, 246, 0.2);
         }
 
-        .file-input-label {
-            cursor: pointer;
+        /* Smooth transitions */
+        a, button, select, textarea, input {
+            transition: all 0.3s ease;
         }
 
-        .file-input-label input[type="file"]::file-selector-button {
+        button:hover, a.btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* File input styling */
+        input[type="file"] {
+            color: #fff;
+        }
+
+        input[type="file"]::file-selector-button {
             background: rgba(139, 92, 246, 0.3);
             color: white;
             border: none;
@@ -46,23 +81,51 @@
             border-radius: 0.5rem;
             margin-right: 1rem;
             cursor: pointer;
-            transition: background 0.3s;
+            font-weight: 500;
         }
 
-        .file-input-label input[type="file"]::file-selector-button:hover {
+        input[type="file"]::file-selector-button:hover {
             background: rgba(139, 92, 246, 0.5);
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: rgba(139, 92, 246, 0.5);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(139, 92, 246, 0.8);
+        }
+
+        /* Animation for gradient backgrounds */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .float {
+            animation: float 3s ease-in-out infinite;
         }
     </style>
 </head>
-<body class="bg-black text-white overflow-x-hidden font-sans">
+<body class="bg-black text-white overflow-x-hidden">
     <!-- GLOBAL BACKGROUND -->
-    <div class="fixed inset-0 bg-[radial-gradient(circle_at_top,_rgba(139,92,246,0.18),transparent_35%),radial-gradient(circle_at_bottom_right,_rgba(255,215,0,0.12),transparent_25%)] pointer-events-none z-0"></div>
+    <div class="fixed inset-0 pointer-events-none z-0" style="background: radial-gradient(circle at top, rgba(139, 92, 246, 0.18), transparent 35%), radial-gradient(circle at bottom right, rgba(255, 215, 0, 0.12), transparent 25%);"></div>
 
     <!-- NAVBAR -->
-    <header class="sticky top-0 z-50 backdrop-blur-xl bg-black/70 border-b border-violet-500/20 shadow-2xl shadow-violet-500/10">
+    <header class="sticky top-0 z-50 backdrop-blur-xl" style="background: rgba(0, 0, 0, 0.7); border-bottom: 1px solid rgba(139, 92, 246, 0.2); box-shadow: 0 20px 25px -5px rgba(139, 92, 246, 0.1);">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <div>
-                <h1 class="text-2xl md:text-3xl font-black tracking-widest bg-gradient-to-r from-violet-400 via-white to-yellow-300 bg-clip-text text-transparent">
+                <h1 class="text-2xl md:text-3xl font-black tracking-widest gradient-text">
                     MAHIMA SARA JACOB
                 </h1>
                 <p class="text-xs text-violet-200 tracking-[0.25em] mt-1">
@@ -79,19 +142,19 @@
     </header>
 
     <!-- PAGE 1 -->
-    <section id="home" class="relative min-h-screen bg-gradient-to-br from-black via-violet-950 to-black">
-        <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(139,92,246,0.18),transparent_50%)]"></div>
+    <section id="home" class="relative min-h-screen bg-gradient-to-br from-black via-violet-950 to-black" style="background: linear-gradient(to bottom right, #000, #2d1b69, #000);">
+        <div class="absolute inset-0" style="background: radial-gradient(circle at center, rgba(139, 92, 246, 0.18), transparent 50%); pointer-events: none;"></div>
 
         <div class="max-w-7xl mx-auto px-6 py-20 relative z-10">
             <div class="grid lg:grid-cols-2 gap-16 items-center min-h-[85vh]">
                 <div>
-                    <div class="inline-flex items-center gap-3 px-5 py-3 rounded-full border border-yellow-400/30 bg-yellow-400/10 backdrop-blur-lg text-yellow-200 text-sm mb-8 shadow-lg shadow-yellow-500/10">
-                        ✨ Future Engineer • IoT Innovator • PM Vikas Trainee
+                    <div class="inline-flex items-center gap-3 px-5 py-3 rounded-full border border-yellow-400/30" style="background: rgba(250, 204, 21, 0.1); box-shadow: 0 10px 15px -3px rgba(250, 204, 21, 0.1);">
+                        <span style="color: #fef08a;">✨ Future Engineer • IoT Innovator • PM Vikas Trainee</span>
                     </div>
 
                     <h1 class="text-5xl md:text-7xl font-black leading-tight mb-8 tracking-tight">
                         Building the
-                        <span class="block bg-gradient-to-r from-violet-400 via-white to-yellow-300 bg-clip-text text-transparent">
+                        <span class="block gradient-text">
                             Future with IoT
                         </span>
                     </h1>
@@ -101,11 +164,11 @@
                     </p>
 
                     <div class="flex flex-wrap gap-5">
-                        <a href="#tracker" class="px-8 py-4 rounded-2xl bg-gradient-to-r from-violet-600 to-violet-800 hover:scale-105 transition-all duration-300 shadow-2xl shadow-violet-500/30 font-semibold">
+                        <a href="#tracker" class="px-8 py-4 rounded-2xl font-semibold hover:scale-105 transition-all duration-300" style="background: linear-gradient(135deg, #7c3aed, #6d28d9); box-shadow: 0 20px 25px -5px rgba(139, 92, 246, 0.3); color: white;">
                             Open PM Vikas Tracker
                         </a>
 
-                        <a href="#contact" class="px-8 py-4 rounded-2xl border border-yellow-400/40 bg-yellow-400/10 hover:bg-yellow-400/20 transition-all duration-300 font-semibold text-yellow-100">
+                        <a href="#contact" class="px-8 py-4 rounded-2xl border border-yellow-400/40 font-semibold text-yellow-100 hover:bg-yellow-400/20 transition-all duration-300" style="background: rgba(250, 204, 21, 0.1);">
                             Connect With Me
                         </a>
                     </div>
@@ -114,9 +177,9 @@
                 <div class="relative flex justify-center">
                     <div class="absolute inset-0 bg-violet-500 blur-3xl opacity-20 rounded-full"></div>
 
-                    <div class="relative bg-white/5 border border-white/10 backdrop-blur-2xl rounded-[2.5rem] p-8 shadow-violet-custom max-w-md w-full">
+                    <div class="relative rounded-[2.5rem] p-8 max-w-md w-full float" style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); backdrop-filter: blur(40px); box-shadow: 0 0 60px rgba(139, 92, 246, 0.35);">
                         <div class="space-y-5">
-                            <div class="bg-black/40 rounded-2xl p-5 border border-violet-500/20">
+                            <div class="rounded-2xl p-5" style="background: rgba(0, 0, 0, 0.4); border: 1px solid rgba(139, 92, 246, 0.2);">
                                 <h3 class="text-violet-300 font-semibold text-lg">Current Internship</h3>
                                 <p class="text-slate-300 mt-2">
                                     IoT Assistant Intern at IIIT Kottayam working on smart systems and advanced embedded solutions.
@@ -124,12 +187,12 @@
                             </div>
 
                             <div class="grid grid-cols-2 gap-4">
-                                <div class="bg-violet-600/20 rounded-2xl p-5 border border-violet-500/20 text-center">
+                                <div class="rounded-2xl p-5 text-center" style="background: rgba(124, 58, 237, 0.2); border: 1px solid rgba(139, 92, 246, 0.2);">
                                     <h3 class="text-3xl font-black text-white">IoT</h3>
                                     <p class="text-slate-300 mt-1 text-sm">Innovation</p>
                                 </div>
 
-                                <div class="bg-yellow-500/10 rounded-2xl p-5 border border-yellow-400/20 text-center">
+                                <div class="rounded-2xl p-5 text-center" style="background: rgba(234, 179, 8, 0.1); border: 1px solid rgba(250, 204, 21, 0.2);">
                                     <h3 class="text-3xl font-black text-yellow-200">ECE</h3>
                                     <p class="text-slate-300 mt-1 text-sm">Engineering</p>
                                 </div>
@@ -141,8 +204,8 @@
 
             <!-- ABOUT -->
             <div class="grid lg:grid-cols-2 gap-10 mt-10">
-                <div class="bg-white/5 backdrop-blur-2xl border border-white/10 rounded-[2rem] p-10 shadow-2xl hover:-translate-y-1 transition-all duration-300">
-                    <h2 class="text-4xl font-bold mb-6 bg-gradient-to-r from-violet-300 to-yellow-200 bg-clip-text text-transparent">
+                <div class="rounded-[2rem] p-10 shadow-2xl hover:-translate-y-1 transition-all duration-300" style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); backdrop-filter: blur(40px);">
+                    <h2 class="text-4xl font-bold mb-6 gradient-text">
                         About Me
                     </h2>
 
@@ -151,10 +214,10 @@
                     </p>
                 </div>
 
-                <div class="bg-gradient-to-br from-violet-900/60 to-black border border-violet-500/20 rounded-[2rem] p-10 shadow-2xl">
+                <div class="rounded-[2rem] p-10 shadow-2xl" style="background: linear-gradient(to bottom right, rgba(88, 28, 135, 0.6), #000); border: 1px solid rgba(139, 92, 246, 0.2);">
                     <h2 class="text-4xl font-bold mb-6 text-white">Education</h2>
 
-                    <div class="bg-white/5 rounded-2xl p-6 border border-white/10 backdrop-blur-xl">
+                    <div class="rounded-2xl p-6" style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); backdrop-filter: blur(40px);">
                         <h3 class="text-2xl font-bold text-violet-200">College of Engineering Kidangoor</h3>
                         <p class="text-slate-300 mt-3 text-lg">
                             B.Tech in Electronics & Communication Engineering
@@ -165,28 +228,28 @@
             </div>
 
             <!-- SKILLS -->
-            <div class="mt-14 bg-white/5 backdrop-blur-2xl border border-white/10 rounded-[2.5rem] p-10 shadow-2xl">
-                <h2 class="text-4xl font-bold mb-8 bg-gradient-to-r from-violet-300 to-yellow-200 bg-clip-text text-transparent">
+            <div class="mt-14 rounded-[2.5rem] p-10 shadow-2xl" style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); backdrop-filter: blur(40px);">
+                <h2 class="text-4xl font-bold mb-8 gradient-text">
                     Technical Skills
                 </h2>
 
                 <div class="flex flex-wrap gap-5">
-                    <span class="px-6 py-4 rounded-2xl bg-gradient-to-r from-violet-700/80 to-black border border-violet-400/20 shadow-lg shadow-violet-500/10 text-white font-medium hover:scale-105 transition-all duration-300">IoT</span>
-                    <span class="px-6 py-4 rounded-2xl bg-gradient-to-r from-violet-700/80 to-black border border-violet-400/20 shadow-lg shadow-violet-500/10 text-white font-medium hover:scale-105 transition-all duration-300">Arduino</span>
-                    <span class="px-6 py-4 rounded-2xl bg-gradient-to-r from-violet-700/80 to-black border border-violet-400/20 shadow-lg shadow-violet-500/10 text-white font-medium hover:scale-105 transition-all duration-300">Embedded Systems</span>
-                    <span class="px-6 py-4 rounded-2xl bg-gradient-to-r from-violet-700/80 to-black border border-violet-400/20 shadow-lg shadow-violet-500/10 text-white font-medium hover:scale-105 transition-all duration-300">Python</span>
-                    <span class="px-6 py-4 rounded-2xl bg-gradient-to-r from-violet-700/80 to-black border border-violet-400/20 shadow-lg shadow-violet-500/10 text-white font-medium hover:scale-105 transition-all duration-300">React</span>
-                    <span class="px-6 py-4 rounded-2xl bg-gradient-to-r from-violet-700/80 to-black border border-violet-400/20 shadow-lg shadow-violet-500/10 text-white font-medium hover:scale-105 transition-all duration-300">HTML/CSS</span>
-                    <span class="px-6 py-4 rounded-2xl bg-gradient-to-r from-violet-700/80 to-black border border-violet-400/20 shadow-lg shadow-violet-500/10 text-white font-medium hover:scale-105 transition-all duration-300">Communication Systems</span>
-                    <span class="px-6 py-4 rounded-2xl bg-gradient-to-r from-violet-700/80 to-black border border-violet-400/20 shadow-lg shadow-violet-500/10 text-white font-medium hover:scale-105 transition-all duration-300">C Programming</span>
-                    <span class="px-6 py-4 rounded-2xl bg-gradient-to-r from-violet-700/80 to-black border border-violet-400/20 shadow-lg shadow-violet-500/10 text-white font-medium hover:scale-105 transition-all duration-300">Problem Solving</span>
-                    <span class="px-6 py-4 rounded-2xl bg-gradient-to-r from-violet-700/80 to-black border border-violet-400/20 shadow-lg shadow-violet-500/10 text-white font-medium hover:scale-105 transition-all duration-300">Team Collaboration</span>
+                    <span class="px-6 py-4 rounded-2xl text-white font-medium hover:scale-105 transition-all duration-300" style="background: linear-gradient(135deg, rgba(124, 58, 237, 0.8), #000); border: 1px solid rgba(139, 92, 246, 0.2); box-shadow: 0 10px 15px -3px rgba(139, 92, 246, 0.1);">IoT</span>
+                    <span class="px-6 py-4 rounded-2xl text-white font-medium hover:scale-105 transition-all duration-300" style="background: linear-gradient(135deg, rgba(124, 58, 237, 0.8), #000); border: 1px solid rgba(139, 92, 246, 0.2); box-shadow: 0 10px 15px -3px rgba(139, 92, 246, 0.1);">Arduino</span>
+                    <span class="px-6 py-4 rounded-2xl text-white font-medium hover:scale-105 transition-all duration-300" style="background: linear-gradient(135deg, rgba(124, 58, 237, 0.8), #000); border: 1px solid rgba(139, 92, 246, 0.2); box-shadow: 0 10px 15px -3px rgba(139, 92, 246, 0.1);">Embedded Systems</span>
+                    <span class="px-6 py-4 rounded-2xl text-white font-medium hover:scale-105 transition-all duration-300" style="background: linear-gradient(135deg, rgba(124, 58, 237, 0.8), #000); border: 1px solid rgba(139, 92, 246, 0.2); box-shadow: 0 10px 15px -3px rgba(139, 92, 246, 0.1);">Python</span>
+                    <span class="px-6 py-4 rounded-2xl text-white font-medium hover:scale-105 transition-all duration-300" style="background: linear-gradient(135deg, rgba(124, 58, 237, 0.8), #000); border: 1px solid rgba(139, 92, 246, 0.2); box-shadow: 0 10px 15px -3px rgba(139, 92, 246, 0.1);">React</span>
+                    <span class="px-6 py-4 rounded-2xl text-white font-medium hover:scale-105 transition-all duration-300" style="background: linear-gradient(135deg, rgba(124, 58, 237, 0.8), #000); border: 1px solid rgba(139, 92, 246, 0.2); box-shadow: 0 10px 15px -3px rgba(139, 92, 246, 0.1);">HTML/CSS</span>
+                    <span class="px-6 py-4 rounded-2xl text-white font-medium hover:scale-105 transition-all duration-300" style="background: linear-gradient(135deg, rgba(124, 58, 237, 0.8), #000); border: 1px solid rgba(139, 92, 246, 0.2); box-shadow: 0 10px 15px -3px rgba(139, 92, 246, 0.1);">Communication Systems</span>
+                    <span class="px-6 py-4 rounded-2xl text-white font-medium hover:scale-105 transition-all duration-300" style="background: linear-gradient(135deg, rgba(124, 58, 237, 0.8), #000); border: 1px solid rgba(139, 92, 246, 0.2); box-shadow: 0 10px 15px -3px rgba(139, 92, 246, 0.1);">C Programming</span>
+                    <span class="px-6 py-4 rounded-2xl text-white font-medium hover:scale-105 transition-all duration-300" style="background: linear-gradient(135deg, rgba(124, 58, 237, 0.8), #000); border: 1px solid rgba(139, 92, 246, 0.2); box-shadow: 0 10px 15px -3px rgba(139, 92, 246, 0.1);">Problem Solving</span>
+                    <span class="px-6 py-4 rounded-2xl text-white font-medium hover:scale-105 transition-all duration-300" style="background: linear-gradient(135deg, rgba(124, 58, 237, 0.8), #000); border: 1px solid rgba(139, 92, 246, 0.2); box-shadow: 0 10px 15px -3px rgba(139, 92, 246, 0.1);">Team Collaboration</span>
                 </div>
             </div>
 
             <!-- CERTIFICATES -->
             <div class="mt-16">
-                <div class="mb-10 bg-white/5 border border-violet-500/20 rounded-[2rem] p-8 backdrop-blur-2xl shadow-2xl">
+                <div class="mb-10 rounded-[2rem] p-8 shadow-2xl" style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(139, 92, 246, 0.2); backdrop-filter: blur(40px);">
                     <h2 class="text-3xl font-bold mb-5 text-violet-200">
                         About PM Vikas
                     </h2>
@@ -195,12 +258,12 @@
                         PM Vikas is a skill development and career enhancement initiative that helps students build industry-relevant knowledge, digital capabilities, and professional exposure through practical learning experiences. Through this internship and learning journey, students gain hands-on experience, improve technical confidence, and prepare for future career opportunities in modern technology domains.
                     </p>
                 </div>
-                <h2 class="text-4xl font-bold mb-10 text-center bg-gradient-to-r from-yellow-200 via-white to-violet-300 bg-clip-text text-transparent">
+                <h2 class="text-4xl font-bold mb-10 text-center gradient-text">
                     Certifications & Achievements
                 </h2>
 
                 <div class="grid lg:grid-cols-2 gap-10">
-                    <div class="bg-white/5 border border-white/10 rounded-[2rem] overflow-hidden shadow-2xl hover:scale-[1.02] transition-all duration-300 p-8 text-center">
+                    <div class="rounded-[2rem] overflow-hidden shadow-2xl hover:scale-[1.02] transition-all duration-300 p-8 text-center" style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1);">
                         <h3 class="text-2xl font-bold text-violet-200 mb-6">
                             IEEE Zerone 6.0
                         </h3>
@@ -210,7 +273,7 @@
                         </p>
                     </div>
 
-                    <div class="bg-white/5 border border-white/10 rounded-[2rem] overflow-hidden shadow-2xl hover:scale-[1.02] transition-all duration-300 p-8 text-center">
+                    <div class="rounded-[2rem] overflow-hidden shadow-2xl hover:scale-[1.02] transition-all duration-300 p-8 text-center" style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1);">
                         <h3 class="text-2xl font-bold text-yellow-200 mb-6">
                             Digital Edge 101
                         </h3>
@@ -225,14 +288,14 @@
     </section>
 
     <!-- PAGE 2 -->
-    <section id="tracker" class="relative py-24 px-6 bg-gradient-to-b from-black via-violet-950/50 to-black">
+    <section id="tracker" class="relative py-24 px-6" style="background: linear-gradient(to bottom, #000, rgba(88, 28, 135, 0.5), #000);">
         <div class="max-w-7xl mx-auto relative z-10">
             <div class="text-center mb-14">
-                <div class="inline-flex px-5 py-2 rounded-full bg-violet-500/10 border border-violet-400/20 text-violet-200 text-sm mb-5">
+                <div class="inline-flex px-5 py-2 rounded-full text-violet-200 text-sm mb-5" style="background: rgba(139, 92, 246, 0.1); border: 1px solid rgba(139, 92, 246, 0.2);">
                     PM VIKAS DAILY TRACKER
                 </div>
 
-                <h2 class="text-5xl font-black bg-gradient-to-r from-violet-300 via-white to-yellow-200 bg-clip-text text-transparent mb-6">
+                <h2 class="text-5xl font-black mb-6 gradient-text">
                     PM Vikas Internship Tracker
                 </h2>
 
@@ -242,7 +305,7 @@
             </div>
 
             <!-- PM VIKAS WINDOW -->
-            <div class="mb-14 bg-white/5 backdrop-blur-2xl border border-violet-500/20 rounded-[2rem] overflow-hidden shadow-2xl">
+            <div class="mb-14 rounded-[2rem] overflow-hidden shadow-2xl" style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(139, 92, 246, 0.2); backdrop-filter: blur(40px);">
                 <div class="flex flex-col lg:flex-row items-center justify-between gap-10 p-10">
                     <div>
                         <h3 class="text-3xl font-bold text-violet-200 mb-4">
@@ -254,7 +317,7 @@
                         </p>
                     </div>
 
-                    <a href="https://futureskillsprime.in/" target="_blank" rel="noreferrer" class="px-8 py-4 rounded-2xl bg-gradient-to-r from-yellow-400 to-yellow-500 text-black font-bold shadow-2xl hover:scale-105 transition-all duration-300 whitespace-nowrap">
+                    <a href="https://futureskillsprime.in/" target="_blank" rel="noreferrer" class="px-8 py-4 rounded-2xl text-black font-bold shadow-2xl hover:scale-105 transition-all duration-300 whitespace-nowrap" style="background: linear-gradient(135deg, #facc15, #fbbf24);">
                         Open FutureSkills Prime
                     </a>
                 </div>
@@ -269,8 +332,8 @@
     <!-- PAGE 3 -->
     <section id="contact" class="relative py-24 px-6 bg-black">
         <div class="max-w-5xl mx-auto relative z-10">
-            <div class="bg-gradient-to-br from-violet-950/70 to-black border border-violet-500/20 rounded-[3rem] p-12 shadow-contact backdrop-blur-2xl text-center">
-                <h2 class="text-5xl font-black mb-8 bg-gradient-to-r from-violet-300 via-white to-yellow-200 bg-clip-text text-transparent">
+            <div class="rounded-[3rem] p-12 text-center" style="background: linear-gradient(to bottom right, rgba(88, 28, 135, 0.7), #000); border: 1px solid rgba(139, 92, 246, 0.2); box-shadow: 0 0 80px rgba(139, 92, 246, 0.2); backdrop-filter: blur(40px);">
+                <h2 class="text-5xl font-black mb-8 gradient-text">
                     Resume & Contact
                 </h2>
 
@@ -279,29 +342,29 @@
                 </p>
 
                 <div class="flex flex-wrap justify-center gap-6 mb-12">
-                    <a href="mailto:mahimasj07@gmail.com" class="px-8 py-4 rounded-2xl bg-gradient-to-r from-violet-600 to-violet-800 hover:scale-105 transition-all duration-300 font-semibold shadow-2xl shadow-violet-500/20">
+                    <a href="mailto:mahimasj07@gmail.com" class="px-8 py-4 rounded-2xl font-semibold hover:scale-105 transition-all duration-300" style="background: linear-gradient(135deg, #7c3aed, #6d28d9); box-shadow: 0 20px 25px -5px rgba(139, 92, 246, 0.2); color: white;">
                         Email Me
                     </a>
 
-                    <a href="resume.pdf" class="px-8 py-4 rounded-2xl border border-yellow-400/30 bg-yellow-400/10 text-yellow-100 hover:bg-yellow-400/20 transition-all duration-300 font-semibold" download="Mahima_Sara_Jacob_Resume.pdf">
+                    <a href="resume.pdf" class="px-8 py-4 rounded-2xl border border-yellow-400/30 font-semibold text-yellow-100 hover:bg-yellow-400/20 transition-all duration-300" style="background: rgba(250, 204, 21, 0.1);" download="Mahima_Sara_Jacob_Resume.pdf">
                         Download Resume
                     </a>
                 </div>
 
                 <div class="grid md:grid-cols-3 gap-6 text-left">
-                    <div class="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-xl">
+                    <div class="rounded-2xl p-6" style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); backdrop-filter: blur(40px);">
                         <h3 class="text-xl font-bold text-violet-200 mb-3">Email</h3>
                         <p class="text-slate-300">mahimasj07@gmail.com</p>
                     </div>
 
-                    <div class="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-xl">
+                    <div class="rounded-2xl p-6" style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); backdrop-filter: blur(40px);">
                         <h3 class="text-xl font-bold text-violet-200 mb-3">LinkedIn</h3>
                         <a href="https://www.linkedin.com/in/mahimasj" target="_blank" rel="noreferrer" class="text-slate-300 hover:text-violet-300 transition">
                             www.linkedin.com/in/mahimasj
                         </a>
                     </div>
 
-                    <div class="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-xl">
+                    <div class="rounded-2xl p-6" style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); backdrop-filter: blur(40px);">
                         <h3 class="text-xl font-bold text-violet-200 mb-3">Location</h3>
                         <p class="text-slate-300">Kottayam, Kerala, India</p>
                     </div>
@@ -311,7 +374,7 @@
     </section>
 
     <!-- FOOTER -->
-    <footer class="bg-black border-t border-violet-500/20 py-8 text-center text-slate-400 text-sm">
+    <footer class="bg-black border-t py-8 text-center text-slate-400 text-sm" style="border-top-color: rgba(139, 92, 246, 0.2);">
         <p>
             © 2026 MAHIMA SARA JACOB • Electronics & Communication Engineering • IIIT Kottayam IoT Assistant
         </p>
@@ -330,7 +393,7 @@
 
         activities.forEach((date, index) => {
             const activityHTML = `
-                <div class="bg-white/5 backdrop-blur-2xl border border-white/10 rounded-[2rem] p-8 shadow-2xl hover:border-violet-400/40 transition-all duration-300">
+                <div class="rounded-[2rem] p-8 shadow-2xl hover:border-violet-400/40 transition-all duration-300" style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); backdrop-filter: blur(40px);">
                     <div class="flex flex-col lg:flex-row lg:justify-between lg:items-center gap-6 mb-6">
                         <div>
                             <h3 class="text-2xl font-bold text-violet-200">
@@ -339,25 +402,25 @@
                             <p class="text-slate-400 mt-2 text-lg">Date: ${date}</p>
                         </div>
 
-                        <select class="bg-black/40 border border-violet-500/30 rounded-xl px-5 py-3 text-white focus:outline-none focus:ring-2 focus:ring-violet-500">
+                        <select class="px-5 py-3 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-violet-500" style="background: rgba(0, 0, 0, 0.4); border: 1px solid rgba(139, 92, 246, 0.3);">
                             <option>Pending</option>
                             <option>Completed</option>
                             <option>In Progress</option>
                         </select>
                     </div>
 
-                    <textarea placeholder="Add detailed internship activity notes here..." class="w-full bg-black/40 border border-white/10 rounded-2xl p-5 min-h-[120px] text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-violet-500"></textarea>
+                    <textarea placeholder="Add detailed internship activity notes here..." class="w-full min-h-[120px] rounded-2xl p-5 text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-violet-500" style="background: rgba(0, 0, 0, 0.4); border: 1px solid rgba(255, 255, 255, 0.1);"></textarea>
 
                     <div class="mt-6 grid md:grid-cols-2 gap-6">
-                        <div class="bg-black/30 border border-white/10 rounded-2xl p-5">
+                        <div class="rounded-2xl p-5" style="background: rgba(0, 0, 0, 0.3); border: 1px solid rgba(255, 255, 255, 0.1);">
                             <label class="block mb-3 text-violet-200 font-semibold">
                                 Upload Activity Picture
                             </label>
 
-                            <input type="file" accept="image/*" class="w-full border border-violet-500/20 rounded-xl p-3 bg-black/40 text-white file:mr-4 file:rounded-lg file:border-0 file:bg-violet-600/30 file:px-4 file:py-2 file:text-white" />
+                            <input type="file" accept="image/*" class="w-full rounded-xl p-3 text-white" style="background: rgba(0, 0, 0, 0.4); border: 1px solid rgba(139, 92, 246, 0.2);" />
                         </div>
 
-                        <div class="bg-black/30 border border-white/10 rounded-2xl p-5 flex flex-col justify-center">
+                        <div class="rounded-2xl p-5 flex flex-col justify-center" style="background: rgba(0, 0, 0, 0.3); border: 1px solid rgba(255, 255, 255, 0.1);">
                             <h4 class="text-yellow-200 font-semibold mb-3">Daily Status</h4>
                             <p class="text-slate-300 text-sm leading-relaxed">
                                 Track attendance, completed tasks, project updates, and internship learning progress.
@@ -365,12 +428,25 @@
                         </div>
                     </div>
 
-                    <button class="mt-6 px-8 py-3 rounded-2xl bg-gradient-to-r from-violet-600 to-violet-800 hover:scale-105 transition-all duration-300 shadow-xl shadow-violet-500/20 font-semibold">
+                    <button class="mt-6 px-8 py-3 rounded-2xl font-semibold hover:scale-105 transition-all duration-300" style="background: linear-gradient(135deg, #7c3aed, #6d28d9); box-shadow: 0 20px 25px -5px rgba(139, 92, 246, 0.2); color: white;">
                         Add Activity
                     </button>
                 </div>
             `;
             container.insertAdjacentHTML('beforeend', activityHTML);
+        });
+
+        // Add smooth scroll behavior
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
         });
     </script>
 </body>
